@@ -52,3 +52,21 @@ C:\Users\Colin\Documents\Visual Studio 2012\Projects\FFRPG\FFRPG\obj\Debug\FFRPG
 C:\Users\Colin\Documents\Visual Studio 2012\Projects\FFRPG\FFRPG\obj\Debug\FFRPG.g.resources
 C:\Users\Colin\Documents\Visual Studio 2012\Projects\FFRPG\FFRPG\obj\Debug\FFRPG.Resources.resources
 C:\Users\Colin\Documents\Visual Studio 2012\Projects\FFRPG\FFRPG\obj\Debug\FFRPG.vbproj.GenerateResource.Cache
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\FFRPG.exe.config
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.exe
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.xml
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.pdb
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\StatusNames.txt
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\FFRPG.exe
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\FFRPG.pdb
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\FFRPG.xml
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\MahApps.Metro.dll
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\bin\Debug\System.Windows.Interactivity.dll
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.vbprojResolveAssemblyReference.cache
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\MainWindow.baml
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\MainWindow.g.vb
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\Application.g.vb
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG_MarkupCompile.cache
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.g.resources
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.Resources.resources
+D:\_Projects\VB.net\FFRPG_WPF\FFRPG\obj\Debug\FFRPG.vbproj.GenerateResource.Cache

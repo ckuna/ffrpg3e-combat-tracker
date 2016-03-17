@@ -2,7 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" x:Class="MainWindow"
-    Title="FINAL FANTASY" Height="768" Width="1024" SnapsToDevicePixels="True" WindowStartupLocation="Manual" WindowState="Maximized">
+    Title="FINAL FANTASY" Height="757.8" Width="1024" SnapsToDevicePixels="True" WindowStartupLocation="Manual" WindowState="Maximized">
 
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
@@ -46,24 +46,25 @@
                 </GroupBox>
                 <!-- REWARDS-->
                 <GroupBox Grid.Column="0" Header="REWARDS" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" MinWidth="145">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <Grid Height="180">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
+                        <Grid VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="80*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="87*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="btnSplitReward" Content="Split" Grid.Column="1" Margin="5,155,0,0" Height="25" VerticalAlignment="Top"/>
+                            <Button x:Name="btnSplitReward" Content="Split" Grid.Column="2" Margin="4,155,0,0" Height="25" VerticalAlignment="Top"/>
                             <Button x:Name="btnClearReward" Content="Clear" Grid.Column="0" Margin="0,155,0,0" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="1"/>
                             <Label Content="Split Exp:" Grid.Column="0" Margin="0,124,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" BorderBrush="White" BorderThickness="1" Height="26" FontSize="12"/>
                             <Label Content="Split Gil:" Grid.Column="0" Margin="0,93,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" BorderBrush="White" BorderThickness="1" Height="26" FontSize="12"/>
                             <Label Content="Total Exp:" Grid.Column="0" Margin="0,31,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" BorderBrush="White" BorderThickness="1" Height="26" FontSize="12"/>
                             <Label Content="Base Gil:" Grid.Column="0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" BorderBrush="White" BorderThickness="1" Height="26" FontSize="12" RenderTransformOrigin="-0.312,-0.269"/>
                             <Label Content="Party Size:" Grid.Column="0" Margin="0,62,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" BorderBrush="White" BorderThickness="1" Height="26" FontSize="12"/>
-                            <TextBox x:Name="tbSplitExp" Grid.Column="1" Height="26" Margin="5,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
-                            <TextBox x:Name="tbSplitGil" Grid.Column="1" Height="26" Margin="5,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
-                            <TextBox x:Name="tbPartySize" Grid.Column="1" Height="26" Margin="5,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                            <TextBox x:Name="tbBaseEXP" Grid.Column="1" Height="26" Margin="5,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
-                            <TextBox x:Name="tbBaseGil" Grid.Column="1" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Margin="5,0,0,0" IsReadOnly="True"/>
+                            <TextBox x:Name="tbSplitExp" Grid.Column="2" Height="26" Margin="4,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
+                            <TextBox x:Name="tbSplitGil" Grid.Column="2" Height="26" Margin="4,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
+                            <TextBox x:Name="tbPartySize" Grid.Column="2" Height="26" Margin="4,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tbBaseEXP" Grid.Column="2" Height="26" Margin="4,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True"/>
+                            <TextBox x:Name="tbBaseGil" Grid.Column="2" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Margin="4,0,0,0" IsReadOnly="True"/>
                         </Grid>
                     </ScrollViewer>
                 </GroupBox>
@@ -188,7 +189,7 @@
                             <TextBox x:Name="tbAddMP" Margin="115,207,0,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top" Grid.Column="3"/>
                             <Button x:Name="btnExecuteMP" Content="Execute" Grid.Column="3" Margin="6,238,0,0" RenderTransformOrigin="0.349,-2.929" Height="28" VerticalAlignment="Top"/>
                             <Button x:Name="btnRoundEnd" Content="Round End" Grid.Column="3" Margin="6,0,0,0" RenderTransformOrigin="0.349,-2.929" Height="28" VerticalAlignment="Bottom"/>
-                            <DataGrid x:Name="dgvRewardTable" Grid.Column="3" Margin="6,271,0,0" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F" ItemsSource="{Binding CurrentDisplayTreasure}" Height="66" VerticalAlignment="Top">
+                            <DataGrid x:Name="dgvRewardTable" Grid.Column="3" Margin="6,271,0,31" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F" ItemsSource="{Binding CurrentDisplayTreasure}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Roll" Binding="{Binding Roll}" CanUserSort="False"/>
                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserSort="False"/>
@@ -328,7 +329,7 @@
                                         </Grid.ColumnDefinitions>
                                         <TabControl Name="tcDataGridMagic" Margin="0" Grid.Column="0">
                                             <TabItem x:Name="tiBlack" Header="BLACK">
-                                                    <DataGrid x:Name="dgvCreateEnemyBlackMagic" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F" Height="125"/>
+                                                <DataGrid x:Name="dgvCreateEnemyBlackMagic" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F" Height="125"/>
                                             </TabItem>
                                             <TabItem x:Name="tiWhite" Header="WHITE">
                                                 <DataGrid x:Name="dgvCreateEnemyWhiteMagic" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F" Height="125"/>
@@ -358,8 +359,32 @@
         <TabItem x:Name="tiNotes" Header="NOTES"/>
         <TabItem x:Name="tiMusic" Header="MUSIC">
         </TabItem>
-        <TabItem x:Name="tiCreateItem" Header="CREATE ITEM">
-            
+        <TabItem x:Name="tiCreateItem" Header="ITEMS">
+            <Grid>
+                <GroupBox Grid.Column="0" Header="REWARDS" Margin="0,0.5,0,-1" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" MinWidth="145" HorizontalAlignment="Left">
+                    <ListBox x:Name="lbRewardItems" Background="#FF2C2C2C" BorderBrush="#FFC5BEBE" BorderThickness="1" Grid.ColumnSpan="3"  FontFamily="Segoe UI Symbol" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,-2,0"/>
+                </GroupBox>
+                <GroupBox Header="ITEMS" Margin="185,0,0,0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" Height="260" VerticalAlignment="Bottom">
+                    <TabControl TabStripPlacement="Left" Background="#FF2C2C2C" BorderBrush="White" FontSize="12" FontFamily="Final Fantasy Classical" Grid.ColumnSpan="2">
+                        <TabItem x:Name="tiItems" Header="ITEMS" BorderThickness="0">
+                            <DataGrid x:Name="dgvItems" Grid.Column="5" Margin="0,0,0,0" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                            </DataGrid>
+                        </TabItem>
+                        <TabItem x:Name="tiRecovery" Header="RECOVERY" BorderThickness="0">
+                            <DataGrid x:Name="dgvRecovery" Grid.Column="5" Margin="0,0,0,0" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                            </DataGrid>
+                        </TabItem>
+                        <TabItem x:Name="tiWeapons" Header="WEAPONS" BorderThickness="0">
+                            <DataGrid x:Name="dgvWeapon" Grid.Column="5" Margin="0,0,0,0" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                            </DataGrid>
+                        </TabItem>
+                        <TabItem x:Name="tiArmor" Header="ARMOR" BorderThickness="0">
+                            <DataGrid x:Name="dgvArmor" Grid.Column="5" Margin="0,0,0,0" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                            </DataGrid>
+                        </TabItem>
+                    </TabControl>
+                </GroupBox>
+            </Grid>
         </TabItem>
     </TabControl>
 </Controls:MetroWindow>

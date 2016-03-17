@@ -6,6 +6,7 @@ Class MainWindow
     Private ActiveMonster() As Monster
     Private RewardEXP As Integer = 0
     Private RewardGil As Integer = 0
+    Private RewardItems() As DroppedItem
     Private appBaseDir As String = System.AppDomain.CurrentDomain.BaseDirectory
 
     Public Sub New()
@@ -15,6 +16,7 @@ Class MainWindow
         BuildAndSetCursor()
         BuildItemTable()
         AddMagicToDatagrid()
+        AddItemsToDatagrid()
     End Sub
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
@@ -36,6 +38,9 @@ Class MainWindow
     Private BlackMagicDataSet As New DataSet()
     Private WhiteMagicDataSet As New DataSet()
     Private TimeMagicDataSet As New DataSet()
+    Private ItemDataSet As New DataSet()
+    Private WeaponDataSet As New DataSet()
+    Private ArmorDataSet As New DataSet()
 
     Private Sub AddMagicToDatagrid()
         Dim DBCon As New System.Data.OleDb.OleDbConnection(DBConString)
@@ -52,6 +57,26 @@ Class MainWindow
         dgvCreateEnemyBlackMagic.ItemsSource = BlackMagicDataSet.Tables("Black Magic").DefaultView
         dgvCreateEnemyWhiteMagic.ItemsSource = WhiteMagicDataSet.Tables("White Magic").DefaultView
         dgvCreateEnemyTimeMagic.ItemsSource = TimeMagicDataSet.Tables("Time Magic").DefaultView
+    End Sub
+
+    Private Sub AddItemsToDatagrid()
+        Dim DBCon As New System.Data.OleDb.OleDbConnection(DBConString)
+        Dim DBAdap As System.Data.OleDb.OleDbDataAdapter
+
+        DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT iName As Name, iCost As Cost, iAvailability As Availability, iTarget As Target, iEffect As Effect From ItemInventory ORDER BY iAvailability DESC;", DBCon)
+        DBAdap.Fill(ItemDataSet, "Item")
+        DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT iName As Name, iCost As Cost, iAvailability As Availability, iTarget As Target, iEffect As Effect From ItemRecovery ORDER BY iAvailability DESC;", DBCon)
+        DBAdap.Fill(ItemDataSet, "Recovery")
+        DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT wName As Name, wType As Type, wSlot As Slot, wCost As Cost, wAvailability As Availability, wDamage As Damage, wAbility As Ability From ItemWeapon ORDER BY wAvailability DESC;", DBCon)
+        DBAdap.Fill(ItemDataSet, "Weapon")
+        DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT aName As Name, aType As Type, aCost As Cost, aAvailability As Availability, aARM As ARM, aMARM As MARM, aEVA as EVA, aMEVA as MEVA, aAbility As Ability From ItemArmor ORDER BY aAvailability DESC;", DBCon)
+        DBAdap.Fill(ItemDataSet, "Armor")
+
+
+        dgvItems.ItemsSource = ItemDataSet.Tables("Item").DefaultView
+        dgvRecovery.ItemsSource = ItemDataSet.Tables("Recovery").DefaultView
+        dgvWeapon.ItemsSource = ItemDataSet.Tables("Weapon").DefaultView
+        dgvArmor.ItemsSource = ItemDataSet.Tables("Armor").DefaultView
     End Sub
 
     Private TreasureTableItems() As DroppedItem
@@ -173,7 +198,7 @@ Class MainWindow
                 tbAttackCOS.Text = "D% Roll Under " & .GetAccuracy() & " - Target's Evasion"
                 Dim mAttribute As Integer = 0
                 If .GetDamageText().IndexOf("STR") <> -1 Then mAttribute = .GetSTR() Else mAttribute = .GetAGI()
-                tbAttackDamage.Text = CInt(Mid(.GetDamageText(), 1, .GetDamageText().IndexOf("x") - 1)) * mAttribute & " + " & Mid(.GetDamageText(), .GetDamageText().LastIndexOf(" ") + 2) & _
+                tbAttackDamage.Text = CInt(Mid(.GetDamageText(), 1, .GetDamageText().IndexOf("x") - 1)) * mAttribute & " + " & Mid(.GetDamageText(), .GetDamageText().LastIndexOf(" ") + 2) &
                     " [" & .GetDamageText() & "]"
 
                 'remove items in collection
@@ -232,6 +257,20 @@ Class MainWindow
             dgvAttackMagic.Items.Clear()
             dgvAttackMagic.Items.Refresh()
         End If
+    End Sub
+
+    Private Sub UpdateLootTable()
+        If RewardItems IsNot Nothing Then
+            lbRewardItems.Items.Clear()
+            For i = 0 To UBound(RewardItems)
+                lbRewardItems.Items.Add(RewardItems(i).Name)
+            Next
+        End If
+    End Sub
+
+    Private Sub ClearLootTable()
+        RewardItems = Nothing
+        lbRewardItems.Items.Clear()
     End Sub
 
     Private Sub btnRoundEnd_Click(sender As Object, e As RoutedEventArgs) Handles btnRoundEnd.Click
@@ -331,6 +370,7 @@ Class MainWindow
     End Sub
 
     Private Sub KillMonster(ByVal i As Integer)
+        Dim n As Integer = rn.Next(1, 100)
         If ActiveMonster IsNot Nothing Then
             If ActiveMonster.Length > 0 Then
                 If i > -1 Then
@@ -338,9 +378,26 @@ Class MainWindow
                     RewardGil += ActiveMonster(i).GetGilModifier
                     tbBaseEXP.Text = RewardEXP
                     tbBaseGil.Text = RewardGil
+
+                    If RewardItems IsNot Nothing Then
+                        ReDim Preserve RewardItems(UBound(RewardItems) + 1)
+                    Else
+                        ReDim RewardItems(0)
+                    End If
+
+                    If n >= 51 Then
+                        If ActiveMonster(i).GetTreasure(0).Name <> "" Then RewardItems(UBound(RewardItems)) = ActiveMonster(i).GetTreasure(0)
+                    ElseIf n >= 25 And n <= 50 Then
+                        If ActiveMonster(i).GetTreasure(1).Name <> "" Then RewardItems(UBound(RewardItems)) = ActiveMonster(i).GetTreasure(1)
+                    ElseIf n >= 8 And n <= 24 Then
+                        If ActiveMonster(i).GetTreasure(2).Name <> "" Then RewardItems(UBound(RewardItems)) = ActiveMonster(i).GetTreasure(2)
+                    ElseIf n >= 1 And n <= 7 Then
+                        If ActiveMonster(i).GetTreasure(3).Name <> "" Then RewardItems(UBound(RewardItems)) = ActiveMonster(i).GetTreasure(3)
+                    End If
                 End If
             End If
         End If
+        UpdateLootTable()
     End Sub
 
     Private Sub btnRemoveMonster_Click(sender As Object, e As RoutedEventArgs) Handles btnRemoveMonster.Click
@@ -389,6 +446,7 @@ Class MainWindow
         tbBaseGil.Text = ""
         tbSplitGil.Text = ""
         tbSplitExp.Text = ""
+        ClearLootTable()
     End Sub
 
 #Region "CREATE ENEMY"
@@ -980,7 +1038,7 @@ Class MainWindow
         If IsNumeric(tbMonsterQuantity.Text) And tbMonsterName.Text <> "" Then
             GetGilEXP(mGilMod, mExpMod)
             For i = 1 To CInt(tbMonsterQuantity.Text)
-                m = New Monster(tbMonsterName.Text & "_" & i, mHP, mMP, mSTR, mVIT, mSPD, mAGI, mMAG, mSPR, mACC, mMACC, mDEX, _
+                m = New Monster(tbMonsterName.Text & "_" & i, mHP, mMP, mSTR, mVIT, mSPD, mAGI, mMAG, mSPR, mACC, mMACC, mDEX,
                                 mMND, mARM, mMARM, mEVA, mMEVA, mGilMod, mExpMod, DamageText, mCreateEnemyMagic, GetRandomRewards())
                 AddMonster(m)
             Next
@@ -1042,9 +1100,6 @@ Class MainWindow
         lbCreateEnemySpells.Items.Clear()
     End Sub
     Private Sub btnRemoveEnemySpells_Click(sender As Object, e As RoutedEventArgs) Handles btnRemoveEnemySpells.Click
-        'Remove From List
-        Dim s As String()
-
         With lbCreateEnemySpells
             While .SelectedItems.Count > 0
                 RemoveMagicFromArray(.SelectedItem.ToString)
@@ -1208,10 +1263,10 @@ Class MainWindow
         End Select
     End Sub
 
+    Dim rn As New Random
     Private Function GetRandomRewards() As DroppedItem()
         Dim mTreasureTable(3) As DroppedItem
         Dim BaseAvailability As Integer = 100 - mLVL
-        Dim rn As New Random
 
         'Get First Item (Common)
         BaseAvailability = 100 - (mLVL / 2)
