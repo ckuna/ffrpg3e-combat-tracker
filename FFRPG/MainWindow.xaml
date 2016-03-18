@@ -361,8 +361,32 @@
         </TabItem>
         <TabItem x:Name="tiCreateItem" Header="ITEMS">
             <Grid>
-                <GroupBox Grid.Column="0" Header="REWARDS" Margin="0,0.5,0,-1" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" MinWidth="145" HorizontalAlignment="Left">
+                <GroupBox Grid.Column="0" Header="REWARDS" Margin="0,0.5,0,265" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" HorizontalAlignment="Left">
                     <ListBox x:Name="lbRewardItems" Background="#FF2C2C2C" BorderBrush="#FFC5BEBE" BorderThickness="1" Grid.ColumnSpan="3"  FontFamily="Segoe UI Symbol" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,-2,0"/>
+                </GroupBox>
+                <GroupBox Grid.Column="0" Header="SHOP KEEPER" Margin="185,0.5,0,265" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145">
+                    <Grid>
+                        <TabControl TabStripPlacement="Top" Background="#FF2C2C2C" BorderBrush="White" FontSize="12" FontFamily="Final Fantasy Classical" Grid.ColumnSpan="2">
+                            <TabItem x:Name="tiItemShop" Header="ITEM" BorderThickness="0">
+                                <DataGrid x:Name="dgvItemShop" Grid.Column="5" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F" Margin="0,0,0,35"/>
+                            </TabItem>
+                            <TabItem x:Name="tiRecoveryShop" Header="RECOVERY" BorderThickness="0">
+                                <DataGrid x:Name="dgvRecoveryShop" Grid.Column="5" Margin="0,0,0,33" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                                </DataGrid>
+                            </TabItem>
+                            <TabItem x:Name="tiWeaponShop" Header="WEAPON" BorderThickness="0">
+                                <DataGrid x:Name="dgvWeaponShop" Grid.Column="5" Margin="0,0,0,33" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                                </DataGrid>
+                            </TabItem>
+                            <TabItem x:Name="tiArmorShop" Header="ARMOR" BorderThickness="0">
+                                <DataGrid x:Name="dgvArmorShop" Grid.Column="5" Margin="0,0,0,33" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
+                                </DataGrid>
+                            </TabItem>
+                        </TabControl>
+                        <Label Content="Availability:" Margin="6,0,0,6" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" BorderBrush="White" BorderThickness="1" Height="26" FontSize="12" HorizontalAlignment="Left" Width="111"/>
+                        <TextBox x:Name="tbAvailability" Height="26" Margin="122,0,0,6" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74"/>
+                        <Button x:Name="btnGenerateShop" Content="Build Shopping Experience" Margin="492,0,6,6" Height="28" VerticalAlignment="Bottom"/>
+                    </Grid>
                 </GroupBox>
                 <GroupBox Header="ITEMS" Margin="185,0,0,0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" Height="260" VerticalAlignment="Bottom">
                     <TabControl TabStripPlacement="Left" Background="#FF2C2C2C" BorderBrush="White" FontSize="12" FontFamily="Final Fantasy Classical" Grid.ColumnSpan="2">
@@ -383,6 +407,13 @@
                             </DataGrid>
                         </TabItem>
                     </TabControl>
+                </GroupBox>
+                <GroupBox Grid.Column="0" Header="TREASURE" Margin="0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" HorizontalAlignment="Left" Height="260" VerticalAlignment="Bottom">
+                    <Grid>
+                        <ListBox x:Name="lbTreasure" Background="#FF2C2C2C" BorderBrush="#FFC5BEBE" BorderThickness="1"  FontFamily="Segoe UI Symbol" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,0,33"/>
+                        <Button x:Name="btnOpenTreasure" Content="Open" Margin="0,0,89,0" Height="28" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5"/>
+                        <Button x:Name="btnClearTreasure" Content="Clear" Margin="89,0,0,0" Height="28" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5"/>
+                    </Grid>
                 </GroupBox>
             </Grid>
         </TabItem>

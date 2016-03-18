@@ -449,6 +449,36 @@ Class MainWindow
         ClearLootTable()
     End Sub
 
+    Private ItemShopDataSet As New DataSet()
+
+    Private Sub btnGenerateShop_Click(sender As Object, e As RoutedEventArgs) Handles btnGenerateShop.Click
+        Dim Availability As Integer = 100
+        If tbAvailability.Text <> "" Then
+            If IsNumeric(tbAvailability.Text) Then
+                Availability = CInt(tbAvailability.Text)
+
+                ItemShopDataSet.Clear()
+
+                Dim DBCon As New System.Data.OleDb.OleDbConnection(DBConString)
+                Dim DBAdap As System.Data.OleDb.OleDbDataAdapter
+
+                DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT * FROM ItemInventory WHERE iAvailability>=" + CStr(Availability) + " ORDER BY iAvailability ASC;", DBCon)
+                DBAdap.Fill(ItemShopDataSet, "Item")
+                DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT * FROM ItemRecovery WHERE iAvailability>=" + CStr(Availability) + " ORDER BY iAvailability ASC;", DBCon)
+                DBAdap.Fill(ItemShopDataSet, "Recovery")
+                DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT * FROM ItemWeapon WHERE wAvailability>=" + CStr(Availability) + " ORDER BY wAvailability ASC;", DBCon)
+                DBAdap.Fill(ItemShopDataSet, "Weapon")
+                DBAdap = New System.Data.OleDb.OleDbDataAdapter("SELECT * FROM ItemArmor WHERE aAvailability>=" + CStr(Availability) + " ORDER BY aAvailability ASC;", DBCon)
+                DBAdap.Fill(ItemShopDataSet, "Armor")
+
+                dgvItemShop.ItemsSource = ItemShopDataSet.Tables("Item").DefaultView
+                dgvRecoveryShop.ItemsSource = ItemShopDataSet.Tables("Recovery").DefaultView
+                dgvWeaponShop.ItemsSource = ItemShopDataSet.Tables("Weapon").DefaultView
+                dgvArmorShop.ItemsSource = ItemShopDataSet.Tables("Armor").DefaultView
+            End If
+        End If
+    End Sub
+
 #Region "CREATE ENEMY"
     Private mLVL, mHP, mMP, mSTR, mVIT, mSPD, mAGI, mMAG, mSPR As Integer
     Private mACC, mMACC, mDEX, mMND, mARM, mMARM, mEVA, mMEVA As Integer
@@ -1030,6 +1060,45 @@ Class MainWindow
         Dim Attribute As String
         If mSTR > mAGI Then Attribute = "STR" Else Attribute = "AGI"
         DamageText = locDamageMultiplier & " x " & Attribute & " + " & locDieNum & "D" & locDamageDie
+    End Sub
+
+    Private Treasure() As String
+
+    Private Sub btnOpenTreasure_Click(sender As Object, e As RoutedEventArgs) Handles btnOpenTreasure.Click
+        Dim TreasureCount As Integer = rn.Next Mod 4 + 1
+        Dim TreasureType As Integer = 0
+        Dim TreasureRoll As Integer = 0
+        Dim TreasureText As String = ""
+
+        'LEGENDARY 0
+        'ARTIFACT 1-3
+        'EPIC 4-10
+        'RARE 11-22
+        'UNCOMMON 23-40
+        'COMMON ELSE
+
+        For i = 0 To TreasureCount
+            TreasureType = rn.Next Mod 4
+            TreasureRoll = rn.Next Mod 100
+
+            If TreasureRoll = 0 Then TreasureText = "Legendary"
+            If TreasureRoll >= 1 And TreasureRoll <= 3 Then TreasureText = "Artifact"
+            If TreasureRoll >= 4 And TreasureRoll <= 10 Then TreasureText = "Epic"
+            If TreasureRoll >= 11 And TreasureRoll <= 22 Then TreasureText = "Rare"
+            If TreasureRoll >= 23 And TreasureRoll <= 40 Then TreasureText = "Uncommon"
+            If TreasureRoll >= 41 Then TreasureText = "Common"
+
+            If TreasureType = 0 Then TreasureText = TreasureText + " Item"
+            If TreasureType = 1 Then TreasureText = TreasureText + " Recovery"
+            If TreasureType = 2 Then TreasureText = TreasureText + " Weapon"
+            If TreasureType = 3 Then TreasureText = TreasureText + " Armor"
+
+            lbTreasure.Items.Add(TreasureText)
+        Next
+    End Sub
+
+    Private Sub btnClearTreasure_Click(sender As Object, e As RoutedEventArgs) Handles btnClearTreasure.Click
+        lbTreasure.Items.Clear()
     End Sub
 
     Private Sub btnCreateMonster_Click(sender As Object, e As RoutedEventArgs) Handles btnCreateMonster.Click
