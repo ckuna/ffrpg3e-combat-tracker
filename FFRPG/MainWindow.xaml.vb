@@ -10,7 +10,7 @@ Class MainWindow
     Private appBaseDir As String = System.AppDomain.CurrentDomain.BaseDirectory
 
     Public Sub New()
-        DBConString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & AppDomain.CurrentDomain.BaseDirectory & "\FinalFantasyRPG.mdb"
+        DBConString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & AppDomain.CurrentDomain.BaseDirectory & "Resources\FinalFantasyRPG.mdb"
         InitializeComponent()
 
         BuildAndSetCursor()
@@ -24,11 +24,11 @@ Class MainWindow
     End Sub
 
     Private Sub BuildAndSetCursor()
-        Me.Cursor = New Cursor(appBaseDir & "Cursor.cur")
+        Me.Cursor = New Cursor(appBaseDir & "Resources\Cursor.cur")
     End Sub
 
     Private Sub AddStatusToCombobox()
-        Dim Str As String() = System.IO.File.ReadAllLines(appBaseDir & "\StatusNames.txt")
+        Dim Str As String() = System.IO.File.ReadAllLines(appBaseDir & "Resources\StatusNames.txt")
         For i = 0 To 104
             cbAddStatus.Items.Add(Str(i))
         Next
