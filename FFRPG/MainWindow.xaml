@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Controls:MetroWindow.Resources>
-    <TabControl Margin="0" Background="#FF2C2C2C" BorderBrush="White" FontFamily="Final Fantasy Classical" FontSize="32">
+    <TabControl Margin="0" Background="#FF2C2C2C" BorderBrush="White" FontFamily="Final Fantasy Classical" FontSize="16">
         <TabItem x:Name="tiEnemy" Header="ENEMY">
             <Grid Background="#FF191919">
                 <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="421*"/>
                 </Grid.ColumnDefinitions>
                 <!-- ACTIVE ENEMY-->
-                <GroupBox Grid.Column="0" Header="ACTIVE ENEMY" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="0" MinWidth="141">
+                <GroupBox Grid.Column="0" Header="ACTIVE ENEMY" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="0" MinWidth="141">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
                         <Grid Margin="0">
                             <Grid.RowDefinitions>
@@ -45,7 +45,7 @@
                     </ScrollViewer>
                 </GroupBox>
                 <!-- REWARDS-->
-                <GroupBox Grid.Column="0" Header="REWARDS" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" MinWidth="145">
+                <GroupBox Grid.Column="0" Header="REWARDS" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" MinWidth="145">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
                         <Grid VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>
@@ -69,7 +69,7 @@
                     </ScrollViewer>
                 </GroupBox>
                 <!-- SELECTED ENEMY-->
-                <GroupBox Grid.Column="1" Header="SELECTED ENEMY" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <GroupBox Grid.Column="1" Header="SELECTED ENEMY" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                         <Grid Margin="0">
                             <Grid.ColumnDefinitions>
@@ -206,7 +206,7 @@
                     </ScrollViewer>
                 </GroupBox>
                 <!-- CREATE ENEMY -->
-                <GroupBox Grid.Column="1" Header="CREATE ENEMY" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <GroupBox Grid.Column="1" Header="CREATE ENEMY" Margin="5" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -356,15 +356,12 @@
                 </GroupBox>
             </Grid>
         </TabItem>
-        <TabItem x:Name="tiNotes" Header="NOTES"/>
-        <TabItem x:Name="tiMusic" Header="MUSIC">
-        </TabItem>
         <TabItem x:Name="tiCreateItem" Header="ITEMS">
             <Grid>
-                <GroupBox Grid.Column="0" Header="REWARDS" Margin="0,0.5,0,265" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" HorizontalAlignment="Left">
+                <GroupBox Grid.Column="0" Header="REWARDS" Margin="0,0.5,0,265" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" HorizontalAlignment="Left">
                     <ListBox x:Name="lbRewardItems" Background="#FF2C2C2C" BorderBrush="#FFC5BEBE" BorderThickness="1" Grid.ColumnSpan="3"  FontFamily="Segoe UI Symbol" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,-2,0"/>
                 </GroupBox>
-                <GroupBox Grid.Column="0" Header="SHOP KEEPER" Margin="185,0.5,0,265" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145">
+                <GroupBox Grid.Column="0" Header="SHOP KEEPER" Margin="185,0.5,0,265" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145">
                     <Grid>
                         <TabControl TabStripPlacement="Top" Background="#FF2C2C2C" BorderBrush="White" FontSize="12" FontFamily="Final Fantasy Classical" Grid.ColumnSpan="2">
                             <TabItem x:Name="tiItemShop" Header="ITEM" BorderThickness="0">
@@ -388,7 +385,7 @@
                         <Button x:Name="btnGenerateShop" Content="Build Shopping Experience" Margin="492,0,6,6" Height="28" VerticalAlignment="Bottom"/>
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="ITEMS" Margin="185,0,0,0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" Height="260" VerticalAlignment="Bottom">
+                <GroupBox Header="ITEMS" Margin="185,0,0,0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" Height="260" VerticalAlignment="Bottom">
                     <TabControl TabStripPlacement="Left" Background="#FF2C2C2C" BorderBrush="White" FontSize="12" FontFamily="Final Fantasy Classical" Grid.ColumnSpan="2">
                         <TabItem x:Name="tiItems" Header="ITEMS" BorderThickness="0">
                             <DataGrid x:Name="dgvItems" Grid.Column="5" Margin="0,0,0,0" BorderBrush="#FFC5BEBE" BorderThickness="1" FontFamily="Segoe UI Symbol" FontSize="11" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF2F2F2F" VerticalGridLinesBrush="#FF2F2F2F">
@@ -408,7 +405,7 @@
                         </TabItem>
                     </TabControl>
                 </GroupBox>
-                <GroupBox Grid.Column="0" Header="TREASURE" Margin="0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="32" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" HorizontalAlignment="Left" Height="260" VerticalAlignment="Bottom">
+                <GroupBox Grid.Column="0" Header="TREASURE" Margin="0" Background="#FF2C2C2C" BorderBrush="#CCFFFFFF" FontFamily="Final Fantasy Classical" Width="180" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="False" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="145" HorizontalAlignment="Left" Height="260" VerticalAlignment="Bottom">
                     <Grid>
                         <ListBox x:Name="lbTreasure" Background="#FF2C2C2C" BorderBrush="#FFC5BEBE" BorderThickness="1"  FontFamily="Segoe UI Symbol" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,0,33"/>
                         <Button x:Name="btnOpenTreasure" Content="Open" Margin="0,0,89,0" Height="28" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5"/>
