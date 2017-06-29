@@ -1,18 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FFRPG", "FFRPG\FFRPG.vbproj", "{19C05D08-96C2-4376-A990-4EFA525213C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{19C05D08-96C2-4376-A990-4EFA525213C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19C05D08-96C2-4376-A990-4EFA525213C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C05D08-96C2-4376-A990-4EFA525213C0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{19C05D08-96C2-4376-A990-4EFA525213C0}.Debug|x86.Build.0 = Debug|Any CPU
 		{19C05D08-96C2-4376-A990-4EFA525213C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19C05D08-96C2-4376-A990-4EFA525213C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C05D08-96C2-4376-A990-4EFA525213C0}.Release|x86.ActiveCfg = Release|Any CPU
+		{19C05D08-96C2-4376-A990-4EFA525213C0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
